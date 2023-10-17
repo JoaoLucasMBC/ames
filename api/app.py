@@ -17,7 +17,7 @@ def predict_price():
     data = request.get_json(force=True)
     for col in data.keys():
         if col not in columns:
-            return jsonify({"msg": "Missing column {} in request".format(col)}), 400
+            return jsonify({"msg": "Column {} does not exist".format(col)}), 400
 
 
     data = request.get_json(force=True)
