@@ -2,6 +2,7 @@ import csv
 from flask import Flask, request, jsonify
 import numpy as np
 import pandas as pd
+from feature_engeneering import feature_engeneering
 
 app = Flask(__name__)
 
@@ -28,12 +29,10 @@ def predict_price():
 
     # Create a DataFrame with one row
     df = pd.DataFrame([row_data])
-
-    # save df as csv
-    df.to_csv('new_data.csv', index=False)
-
-    row_data_serializable = {k: int(v) if isinstance(v, np.int64) else v for k, v in row_data.items()}
-    return jsonify({"msg": "Success", "data": row_data_serializable}), 200
+    
+    print(df.shape)
+    x = feature_engeneering(df)
+    return jsonify({"msg": "Success", "data": x}), 200
 
 
 
