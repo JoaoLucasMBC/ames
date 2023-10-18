@@ -8,3 +8,5 @@ yapf
 seaborn
 scikit-learn
 requests
+catboost
+category_encoders
