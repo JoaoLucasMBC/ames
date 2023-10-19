@@ -10,3 +10,4 @@ scikit-learn
 requests
 catboost
 category_encoders
+flask
