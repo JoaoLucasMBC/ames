@@ -7,7 +7,7 @@ from feature_engeneering import feature_engeneering
 app = Flask(__name__)
 
 
-@app.route('/api/predict', methods=['POST'])
+@app.route('/ames/predict', methods=['POST'])
 def predict_price():
     if not request.is_json:
         return jsonify({"Mensagem": "Faltando JSON na requisição"}), 400
