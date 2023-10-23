@@ -60,5 +60,6 @@ python app.py
 
 ### Video Demo
 
-![Video Demo](https://github.com/JoaoLucasMBC/ames/assets/65266327/f167257a-6f0d-414a-af26-9521f0444ff5)
+<video src="https://github.com/JoaoLucasMBC/ames/assets/65266327/f167257a-6f0d-414a-af26-9521f0444ff5" controls="controls" style="max-width: 730px;">
+</video>
 
