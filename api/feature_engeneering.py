@@ -9,6 +9,8 @@ import pathlib
 
 RANDOM_SEED = 42
 
+path = pathlib.Path.cwd().parent / 'api'
+
 def remap_categories(
     series: pd.Series,
     old_categories: tuple[str],
@@ -241,8 +243,8 @@ def feature_engeneering(df_novo):
     numeric_cols = X.select_dtypes(include=[np.number]).columns
     numeric_cols = [f for f in numeric_cols if f not in boolean_features]
 
-    X_velho = pd.read_csv('/Users/pedropertusi/Desktop/4o semestre/ML/ames/api/x_model.csv')
-    y = pd.read_csv('/Users/pedropertusi/Desktop/4o semestre/ML/ames/api/y.csv')
+    X_velho = pd.read_csv(path / 'x_model.csv')
+    y = pd.read_csv(path / 'y.csv')
 
     X_velho = pd.get_dummies(X_velho, drop_first=True)
     X = pd.get_dummies(X, drop_first=True)
@@ -258,12 +260,20 @@ def feature_engeneering(df_novo):
     X_velho.loc[:,numeric_cols] = scaler.fit_transform(X_velho[numeric_cols])
     X.loc[:,numeric_cols] = scaler.transform(X[numeric_cols])
 
-    lasso_params = {'alpha': 6e-05, 'copy_X': True, 'fit_intercept': True, 'max_iter': 50000, 'positive': False, 'precompute': False, 'random_state': None, 'selection': 'cyclic', 'tol': 0.0001, 'warm_start': False}
+    lasso_params = {'alpha': 8e-05,
+                'copy_X': True,
+                'fit_intercept': True,
+                'max_iter': 50000,
+                'positive': False,
+                'precompute': False,
+                'random_state': None,
+                'selection': 'cyclic',
+                'tol': 0.0001,
+                'warm_start': False}
 
     lasso = Lasso(**lasso_params)
     lasso.fit(X_velho, y)
     result = lasso.predict(X)
 
-    
 
     return 10**result[0]

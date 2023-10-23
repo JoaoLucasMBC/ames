@@ -2,9 +2,14 @@ from flask import Flask, request, jsonify
 import numpy as np
 import pandas as pd
 from feature_engeneering import feature_engeneering
+import pathlib
+import warnings
+
+warnings.filterwarnings("ignore")
 
 
 app = Flask(__name__)
+path = pathlib.Path.cwd().parent / 'api'
 
 
 @app.route('/ames/predict', methods=['POST'])
@@ -23,7 +28,7 @@ def predict_price():
 
     data = request.get_json(force=True)
 
-    data_most = pd.read_csv('/Users/pedropertusi/Desktop/4o semestre/ML/ames/api/most_occuring.csv')
+    data_most = pd.read_csv(path / 'most_occuring.csv')
 
     row_data = {}
 
