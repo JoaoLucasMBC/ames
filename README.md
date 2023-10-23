@@ -58,7 +58,7 @@ python app.py
 
 * Se a rota não receber alguma feature do AMES original mas nenhum dos erros acima for cometido, ela completa os mesmos (Categóricas -> Mediana , Numéricas -> Média)
 
-### Video Tutorial
+### Video Demo
 
-https://github.com/JoaoLucasMBC/ames/assets/65266327/f167257a-6f0d-414a-af26-9521f0444ff5
+![Video Demo](https://github.com/JoaoLucasMBC/ames/assets/65266327/f167257a-6f0d-414a-af26-9521f0444ff5)
 
